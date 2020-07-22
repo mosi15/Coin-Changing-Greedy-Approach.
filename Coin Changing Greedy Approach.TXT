@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+int main () 
+{
+ int num_denominations, coin_list[70], use_these[70], i, back;
+ 
+ printf("Enter number of denominations : ");
+ scanf("%d", &num_denominations);
+ 
+ printf("\nEnter the denominations in descending order: ");
+ 
+ for(i=0; i< num_denominations; i++) {
+ scanf("%d", &coin_list[i]);
+ }
+ 
+ printf("\nEnter the amount back : ");
+ scanf("%d", &back);
+ 
+ for(i=0; i < num_denominations; i++) {
+ use_these[i] = back / coin_list[i];
+ back %= coin_list[i];
+ }
+ 
+ printf("\nSolution: \n");
+ for(i=0; i < num_denominations; i++) {
+ printf("%dx%d ", coin_list[i], use_these[i]);
+ }
+}
